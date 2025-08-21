@@ -1,0 +1,62 @@
+{% extends "courtera/layout.html" %}
+{% load static %}
+{% block body %}
+
+<div class="course-detail-page">
+    <div class="course-detail-header">
+        <h2 class="detail-title">{{ course.title }}</h2>
+        <p class="detail-org">📚 {{ course.organization }}</p>
+    </div>
+
+    {% if course.image_url %}
+        <div class="detail-image">
+            <img src="{{ course.image_url }}" alt="{{ course.title }}">
+        </div>
+    {% endif %}
+
+<div class="detail-meta">
+    <p><strong>⭐ Ratings:</strong> {{ course.ratings }} ({{ course.review_counts }} reviews)</p>
+
+    <p><strong>🛠 Skills:</strong> 
+        {{ course.skills}}
+    </p>
+
+    <p><strong>📄 Metadata:</strong> 
+       {{course.metadata}}
+    </p>
+</div>
+
+    {% if course.course_link %}
+        <a href="{{ course.course_link }}" target="_blank" class="btn-detail-link">Go to Course</a>
+    {% endif %}
+</div>
+
+<hr>
+
+<div class="course-detail-review">
+    <h3>💬 Evaluate This Course</h3>
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="text" placeholder="Type your comment here..."></textarea>
+        <button type="submit" class="btn-detail-submit">Comment</button>
+    </form>
+
+    {% if prediction is not None %}
+        <h3>⭐ Your Evaluation</h3>
+        <div class="detail-star-rating">
+            {% for i in "12345" %}
+                {% if prediction >= forloop.counter %}
+                    <span class="star filled">★</span>
+                {% else %}
+                    <span class="star">★</span>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'courtera/home.js' %}"></script>
+{% endblock %}

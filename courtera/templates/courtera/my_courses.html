@@ -1,0 +1,39 @@
+{% extends "courtera/layout.html" %}
+{% load static %}
+
+{% block body %}
+<h1 class = 'page-title'>My Courses</h1>
+    <div class="course-container">
+        {% for uc in user_courses %}
+            <div class="course-card">
+                <a href="{% url 'course_detail' uc.course.id %}" class="course-link">
+                {% if uc.course.image_url %}
+                    <img src="{{ uc.course.image_url }}" alt="{{ uc.course.title }}">
+                {% else %}
+                    <img src="https://via.placeholder.com/300x200" alt="No image">
+                {% endif %}
+
+                <div class="course-title">{{ uc.course.title }}</div>
+                <div class="course-org">{{ uc.course.organization }}</div>
+                <div class="course-rating">
+                    ⭐ {{ uc.course.ratings }} ({{ uc.course.review_counts }} reviews)
+                </div>
+                <div class="skills">{{ uc.course.skills }}</div>
+                </a>
+                <!-- Optional: Remove course form -->
+                 <div class="buttons">
+                <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="course_id" value="{{ uc.course.id }}">
+                <input type="hidden" name="action" value="remove">
+                <button type="submit" class="remove-btn">Remove</button>
+            </form>
+            </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+{% block script %}
+    <script src="{% static 'courtera/home.js' %}"></script>
+{% endblock %}

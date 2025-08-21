@@ -1,0 +1,21 @@
+{% extends "courtera/layout.html" %}
+{% load static %}
+
+{%block body%}
+    <div>
+    <h2>Enter text to analyze:</h2>
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="text" rows="4" cols="50" placeholder="Type here..."></textarea><br><br>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction is not None %}
+        <h3>Prediction: {{ prediction }}</h3>
+    {% endif %}
+    </div>
+{%endblock%}
+
+{% block script %}
+    <script src="{% static 'courtera/home.js' %}"></script>
+{% endblock %}

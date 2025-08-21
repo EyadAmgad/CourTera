@@ -1,0 +1,34 @@
+{% extends "courtera/layout.html" %}
+{% load static %}
+{% block body %}
+<h1 class="page-title">Available Courses</h1>
+
+<div class="course-container">
+    {% for course in courses %}
+    <div class="course-card">
+        {% if course.image_url %}
+            <img src="{{ course.image_url }}" alt="{{ course.title }}">
+        {% else %}
+            <img src="https://via.placeholder.com/300x200" alt="No image">
+        {% endif %}
+        <div class="course-title">{{ course.title }}</div>
+        <div class="course-org">{{ course.organization }}</div>
+        <div class="course-rating">⭐ {{ course.ratings }} ({{ course.review_counts }} reviews)</div>
+        <div class="skills">{{ course.skills }}</div>
+        <div class="buttons">
+            <form method="POST" action="{% url 'my_courses' %}">
+                {% csrf_token %}
+                <input type="hidden" name="course_id" value="{{ course.id }}">
+                <input type="hidden" name="action" value="add">
+                <button type="submit" class="remove-btn">Add Course</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+{% block script %}
+  <script src="{% static 'courtera/home.js' %}"></script>
+{% endblock %}

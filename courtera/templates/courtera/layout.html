@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Courtera{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'courtera/styles.css' %}" rel="stylesheet">
+        <script src="{% static 'courtera/home.js' %}"></script>
+        <meta name="csrf-token" content="{{ csrf_token }}">
+        {% block script %}
+        {% endblock %}
+    </head>
+    <body>
+
+<nav class="navbar navbar-expand-lg custom-navbar">
+    <a class="navbar-brand" id="net" href="{% url 'login' %}">CourTera</a>
+  
+    <div>
+      <ul class="navbar-nav mr-auto">
+        {% if user.is_authenticated %}
+            <li class="nav-item" id="userinfo">
+                <a class="nav-link" href="{% url 'course_list' %}"><strong>{{ user.username }}</strong></a>
+            </li>
+        {% endif %}
+        
+        {% if user.is_authenticated %}
+        <li class="nav-item" id="allpost">
+           <a class="nav-link" href="{% url 'course_list' %}">All Courses</a>
+        </li>
+            <li class="nav-item">
+                <a class="nav-link" id="followlink" href="{% url 'my_courses' %}">My Courses</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Log In</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'register' %}">Register</a>
+            </li>
+        {% endif %}
+      </ul>
+    </div>
+</nav>
+
+        
+        <div class="body">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </body>
+</html>
