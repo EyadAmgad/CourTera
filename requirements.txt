@@ -1,0 +1,6 @@
+python
+django
+transformers
+tensorflow 
+huggingface_hub
+keras
