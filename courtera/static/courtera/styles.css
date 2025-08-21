@@ -1,0 +1,411 @@
+/* ===== Global Styles ===== */
+body {
+    background: linear-gradient(135deg, #1a0a1b, #690a75);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff; /* Makes text readable on dark violet */
+}
+
+.navbar {
+    background-color: #00fff2 !important;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.05);
+}
+
+#net {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff !important;
+    transition: color 0.3s ease;
+}
+#net:hover {
+    color: #0056b3 !important;
+}
+
+.nav-link {
+    color: #555 !important;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+.nav-link:hover {
+    color: #007bff !important;
+    transform: translateY(-2px);
+}
+
+#userinfo strong {
+    color: #28a745;
+}
+
+.body {
+    padding: 20px;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+/* ===== Dark Mode ===== */
+.dark-mode {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+.dark-mode .navbar {
+    background-color: #1e1e1e !important;
+}
+.dark-mode .nav-link {
+    color: #ccc !important;
+}
+.dark-mode .nav-link:hover {
+    color: #00bcd4 !important;
+}
+
+/* ===== Course Cards ===== */
+/* ---------- Grid layout ---------- */
+/* Container for all course cards */
+.course-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Always 5 columns */
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+
+/* Course card styling */
+.course-card {
+    background-color: #f8f0ff; /* Soft violet tone */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%; /* Fill the grid cell */
+    max-width: 340px; /* Control card width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Image styling */
+.course-card img {
+    width: 350px;
+    height: 160px;
+    object-fit: contain; /* Makes image fill and crop nicely */
+}
+
+/* Title */
+.course-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0 5px;
+    color:#007bff
+}
+
+/* Organization */
+.course-org {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+/* Rating */
+.course-rating {
+    font-size: 14px;
+    color: #ff9800;
+    margin-bottom: 10px;
+}
+
+.course-card .buttons {
+    margin-top: auto;      /* pushes the button section to the bottom */
+    width: 100%;
+    padding: 10px;
+}
+
+.course-card .buttons button {
+    background: linear-gradient(90deg, #8b5cf6, #6d28d9);
+    border: none;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;           /* makes button full width of card */
+    transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.course-card .buttons button:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+/* Skills */
+.skills {
+    font-size: 13px;
+    color: #444;
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+
+/* Buttons container */
+.buttons {
+    margin: 10px 0;
+}
+
+/* Button styling */
+.remove-btn {
+    background-color: #7e57c2;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.remove-btn:hover {
+    background-color: #5e35b1;
+}
+
+/* ===== Star Ratings ===== */
+.star-rating {
+    font-size: 2rem;
+    color: #ccc;
+    display: inline-block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.star {
+    font-size: 2rem; 
+    color: lightgray; 
+    transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.star.filled {
+    color: gold !important;
+}
+
+.star:hover {
+    transform: scale(1.2);
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Scroll Reveal Animation ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease, background-color 0.4s ease, box-shadow 0.4s ease;
+    border-radius: 12px;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+    background: linear-gradient(135deg, #ffffff, #f9f9f9);
+}
+
+.reveal:hover {
+    background-color: #f8f9fa;
+    box-shadow: 0px 10px 18px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px) scale(1.02);
+}
+
+/* Glow effect on hover */
+.reveal:hover {
+    box-shadow: 0px 10px 20px rgba(0, 123, 255, 0.2);
+}
+
+/* Dark mode adjustments for reveal */
+.dark-mode .reveal {
+    background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+}
+.dark-mode .reveal:hover {
+    background-color: #2a2a2a;
+    box-shadow: 0px 10px 20px rgba(0, 188, 212, 0.2);
+}
+
+.custom-navbar {
+    background-color: #8a2be2; /* Violet color */
+    justify-content: center;
+    padding: 0.8rem;
+}
+
+.custom-navbar .navbar-brand {
+    color: white;
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin-right: 2rem;
+}
+
+.custom-navbar .navbar-nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.custom-navbar .nav-link {
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover {
+    color: #ffd700; /* gold on hover */
+    transform: scale(1.05);
+}
+
+.custom-navbar .navbar-brand:hover {
+    color: #ffd700; /* gold on hover */
+}
+.page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #fff;
+    background: linear-gradient(90deg, #8b5cf6, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.page-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #8b5cf6, #ec4899);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}   
+/* Page container - softer background */
+/* Page container */
+.course-detail-page {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    padding: 25px;
+    max-width: 950px;
+    margin: auto;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Header */
+.course-detail-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.detail-title {
+    font-size: 2.3rem;
+    font-weight: 900;
+    background: linear-gradient(90deg, #8b5cf6, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.detail-org {
+    font-size: 1.2rem;
+    color: #6b7280;
+}
+
+/* Image */
+.detail-image img {
+    max-width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    margin-top: 15px;
+}
+
+/* Metadata */
+.detail-meta {
+    margin-top: 20px;
+    font-size: 1.05rem;
+    color: #374151;
+}
+
+/* Buttons */
+.btn-detail-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: linear-gradient(90deg, #8b5cf6, #6d28d9);
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.btn-detail-link:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+/* Review section */
+.course-detail-review {
+    background: #f9f9ff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 30px;
+}
+.course-detail-review textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+.btn-detail-submit {
+    margin-top: 10px;
+    background: linear-gradient(90deg, #ec4899, #8b5cf6);
+    border: none;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+.btn-detail-submit:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+/* Stars */
+.detail-star-rating {
+    font-size: 2rem;
+    color: #ddd;
+}
+.detail-star-rating .star.filled {
+    color: gold;
+}
+/* Tag styles for skills and metadata */
+.course-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.course-tag {
+    background-color: #e9d5ff; /* light violet background */
+    color: #5b21b6; /* deep violet text */
+    padding: 6px 12px;
+    border-radius: 50px; /* fully rounded pill shape */
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.course-tag:hover {
+    background-color: #c084fc; /* richer violet on hover */
+    transform: translateY(-2px);
+    cursor: default;
+}
+
+
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
