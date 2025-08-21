@@ -40,25 +40,4 @@ The platform integrates a **Sentiment Analysis Model** that analyzes user review
 
 
 ## 📂 Project Structure
-Courtera/
- │── courtera/          # App for managing courses
- │   │── migrations/    # Database migrations
- │   │── static/        # Static files (CSS, JS, images)
- │   │── templates/     # HTML templates
- │   │── admin.py       # Django admin configuration
- │   │── apps.py        # App configuration
- │   │── models.py      # Database models
- │   │── urls.py        # App-specific URL routing
- │   │── utils.py       # BERT model
- │   │── views.py       # App logic
- │
- │── mysite/            # Main Django project folder
- │   │── settings.py    # Project settings
- │   │── urls.py        # Root URL routing
- │   │── wsgi.py        # WSGI config
- │   │── asgi.py        # ASGI config
- │
- │── manage.py          # Django project manager
- │── requirements.txt   # Python dependencies
- │── README.md          # Project documentation
 
