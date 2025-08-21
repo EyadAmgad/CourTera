@@ -38,6 +38,3 @@ The platform integrates a **Sentiment Analysis Model** that analyzes user review
 - **ML Model:** Sentiment analysis using BERT
 - **Frontend:** HTML , CSS and JavaScript
 
-
-## 📂 Project Structure
-
