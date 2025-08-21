@@ -12,16 +12,7 @@ from django.utils import timezone
 from .models import User , Course , UserCourse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-@login_required
-def index(request):
-    prediction = None
-    if request.method == "POST":
-        text = request.POST.get("text", "")
-        if text:
-            prediction = predict_sentiment(text)
-    return render(request, "courtera/index.html", {"prediction": prediction})
 
-@login_required
 def course_list(request):
     courses = Course.objects.all()
     return render(request, 'courtera/courses.html', {'courses': courses
@@ -91,7 +82,7 @@ def login_view(request):
         # Check if authentication successful
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse("index"))
+            return HttpResponseRedirect(reverse("course_list"))
         else:
             return render(request, "courtera/login.html", {
                 "message": "Invalid username and/or password."
@@ -127,6 +118,6 @@ def register(request):
                 "message": "Username already taken."
             })
         login(request, user)
-        return HttpResponseRedirect(reverse("index"))
+        return HttpResponseRedirect(reverse("course_list"))
     else:
         return render(request, "courtera/register.html")
