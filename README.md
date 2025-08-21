@@ -39,7 +39,14 @@ The platform integrates a **Sentiment Analysis Model** that analyzes user review
 - **Frontend:** HTML , CSS and JavaScript
 
 ---
-
+.
+├── build                   # Compiled files (alternatively `dist`)
+├── docs                    # Documentation files (alternatively `doc`)
+├── src                     # Source files (alternatively `lib` or `app`)
+├── test                    # Automated tests (alternatively `spec` or `tests`)
+├── tools                   # Tools and utilities
+├── LICENSE
+└── README.md
 ## 📂 Project Structure
 Courtera/
 │── courtera/ # App for managing courses
